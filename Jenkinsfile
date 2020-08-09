@@ -1,6 +1,6 @@
 node() {
     stage ('creating aws bucket') {
-        git credentialsId: 'Github-User1', url 'https://github.com/yash4993/terraform-infra.git'
+        git credentialsId: 'Github-User1', url: 'https://github.com/yash4993/terraform-infra.git'
           sh '''
           cd s3
           terraform init
