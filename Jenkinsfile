@@ -26,7 +26,6 @@ node() {
         }
     }
     stage('deply war file to aws ec2'){
-       git credentialsId: 'Github-User1', url: 'https://github.com/yash4993/terraform-infra.git'
         sh '''
         cp /var/lib/jenkins/workspace/deployment/target/*.war /opt/
         cd ec2
