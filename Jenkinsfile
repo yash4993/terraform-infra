@@ -4,7 +4,7 @@ node() {
           sh '''
           cd s3
          /usr/local/bin/terraform init
-          terraform apply -auto-approve
+          /usr/local/bin/terraform apply -auto-approve
           cd ../..
           '''
     }
@@ -20,7 +20,7 @@ node() {
                             cd jenkins
                             mvn clean package
                             ls -ltr target
-                            aws s3 cp /var/lib/jenkins/workspace/jenkins/target/*.war s3:///yash4993bucket/Folder1/
+                            /usr/local/bin/aws s3 cp /var/lib/jenkins/workspace/jenkins/target/*.war s3:///yash4993bucket/Folder1/
                             cd ../
                 '''
             
@@ -30,8 +30,8 @@ node() {
         sh '''
         cp /var/lib/jenkins/workspace/jenkins/target/*.war /opt/
         cd ec2
-        terraform init
-        terraform apply -auto-approve
+        /usr/local/bin/terraform init
+        /usr/local/bin/terraform apply -auto-approve
        
       '''
   }
