@@ -3,7 +3,7 @@ node() {
         git credentialsId: 'Github-User1', url: 'https://github.com/yash4993/terraform-infra.git'
           sh '''
           cd s3
-          terraform init
+         /usr/local/bin/terraform init
           terraform apply -auto-approve
           cd ../..
           '''
