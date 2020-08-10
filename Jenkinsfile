@@ -19,7 +19,7 @@ node() {
                             export AWS_DEFAULT_REGION="us-east-2"
                             mvn clean package
                             ls -ltr target
-                            /usr/local/bin/aws s3 cp /var/lib/jenkins/workspace/target/*.war s3:///yash4993bucket/Folder1/
+                            /usr/local/bin/aws s3 cp /var/lib/jenkins/workspace/deployment/target/*.war s3:///yash4993bucket/Folder1/
                        
                 '''
             
@@ -27,7 +27,7 @@ node() {
     }
     stage('deply war file to aws ec2'){
         sh '''
-        cp /var/lib/jenkins/workspace/target/*.war /opt/
+        cp /var/lib/jenkins/workspace/deployment/target/*.war /opt/
         cd ec2
         /usr/local/bin/terraform init
         /usr/local/bin/terraform apply -auto-approve
